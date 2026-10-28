@@ -1,0 +1,40 @@
+{
+  "input": {
+    "claims": "sample_input/claims.jsonl",
+    "prior_art": "sample_input/prior_art.jsonl",
+    "sources": "sample_input/sources.jsonl",
+    "ocr_artifacts": "sample_input/ocr_artifacts.jsonl",
+    "feature_artifacts": "sample_input/features.jsonl"
+  },
+  "output_dir": "runs/latest",
+  "retrieval": {
+    "top_k": 10,
+    "passages_per_document": 3
+  },
+  "features": {
+    "mode": "external_artifacts"
+  },
+  "translation": {
+    "model": "Qwen3-8B-Q4_K_M",
+    "model_path": "../models/qwen3-8b-q4_k_m.gguf",
+    "n_ctx": 16384,
+    "n_gpu_layers": 35,
+    "max_tokens": 700
+  },
+  "evidence": {
+    "model": "qwen3.5:4b",
+    "endpoint": "http://localhost:11434/api/chat",
+    "context_length": 32768,
+    "max_tokens": 512,
+    "timeout": 900
+  },
+  "review": {
+    "enabled": false,
+    "model": "gemini-3.5-flash-lite",
+    "api_key_env": "GEMINI_API_KEY",
+    "endpoint": "https://generativelanguage.googleapis.com/v1beta",
+    "top_documents": 5,
+    "max_tokens": 4096,
+    "timeout": 120
+  }
+}
