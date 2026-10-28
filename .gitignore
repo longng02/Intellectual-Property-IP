@@ -1,0 +1,18 @@
+# Local runtime configuration
+config.json
+
+# Generated pipeline output
+runs/
+
+# Python bytecode and environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
